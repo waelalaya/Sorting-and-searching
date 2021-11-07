@@ -1,0 +1,24 @@
+PROCEDURE insertion_sort(VAR arr ARRAY_OF INTEGER)
+VAR n: INTEGER := arr.length;
+VAR i: INTEGER;
+VAR j: INTEGER;
+VAR swap: INTEGER;
+BEGIN
+    FOR i FROM 1 TO arr.length STEP 1 DO
+        swap := arr[i];
+        j := i - 1;
+
+        WHILE (j >= 0 AND arr[j] > swap) DO
+            arr[j + 1] := arr[j];
+            j := j - 1;
+        END_WHILE
+        arr[j + 1] := swap;
+    END_FOR
+END 
+
+ALGORITHM INSERTION_SORT
+VAR tab : ARRAY_OF INTEGER[5] := [5, 3, 2, 9, 8];
+BEGIN 
+    insertion_sort(tab);
+    read(tab);
+END 
